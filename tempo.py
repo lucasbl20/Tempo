@@ -3,7 +3,7 @@ import requests
 from datetime import datetime
 
 # Sua chave API do OpenWeatherMap
-API_KEY = "8da2a0c538b372e0bea06260337f29c9"
+API_KEY = "sua-chave"
 CITY = "Osasco, BR"
 BASE_URL = ""
 
