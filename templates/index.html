@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima e Hora</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Clima em {{ city }}</h1>
+
+        <div class="weather-info">
+            <p class="temperature">{{ temperature }}°C</p>
+            <p class="description">{{ description.capitalize() }}</p>
+            <p>Umidade: {{ humidity }}%</p>
+            <p>Vento: {{ wind_speed }} km/h</p>
+        </div>
+
+        <div class="date-time">
+            <p>Dia da semana: {{ day_of_week.capitalize() }}</p>
+            <p>Data: {{ date }}</p>
+            <p>Hora: <span id="time">{{ time }}</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Atualiza o horário em tempo real
+        setInterval(function() {
+            const timeElement = document.getElementById('time');
+            const currentTime = new Date().toLocaleTimeString('pt-BR');
+            timeElement.textContent = currentTime;
+        }, 1000);
+    </script>
+</body>
+</html>
